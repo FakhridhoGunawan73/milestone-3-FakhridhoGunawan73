@@ -2,6 +2,8 @@ import axiosInstance from "../../lib/axios";
 import { Product } from "../../types/product";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProductDetailPage({
   params,
 }: {
@@ -21,12 +23,12 @@ export default async function ProductDetailPage({
             href="/"
             className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2 mb-8"
           >
-            ← Kembali ke Katalog
+            ← Back to Catalog
           </Link>
 
           <div className="bg-white rounded-3xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-0">
-            {/* Sisi Kiri: Gambar */}
-            <div className="bg-gray-200 h-[400px] md:h-auto">
+            {/* Gambar */}
+            <div className="bg-gray-200 h-96 md:h-auto">
               <img
                 src={product.images[0]}
                 alt={product.title}
@@ -34,7 +36,7 @@ export default async function ProductDetailPage({
               />
             </div>
 
-            {/* Sisi Kanan: Detail */}
+            {/*Detail */}
             <div className="p-8 md:p-12 flex flex-col justify-center">
               <span className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-2">
                 {product.category.name}
@@ -67,7 +69,7 @@ export default async function ProductDetailPage({
       <div className="h-screen flex flex-col items-center justify-center">
         <h1 className="text-2xl font-bold">Produk tidak ditemukan!</h1>
         <Link href="/" className="mt-4 text-blue-600">
-          Kembali ke Beranda
+          Back to Home
         </Link>
       </div>
     );
