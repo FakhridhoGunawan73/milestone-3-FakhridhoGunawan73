@@ -36,3 +36,5 @@ Proyek ini dikembangkan untuk mendemonstrasikan integrasi API eksternal dengan a
 4. Akses melalui: `http://localhost:3000`
 
 ## Deploy Website
+
+[Link](https://milestone-3-fakhridho-gunawan73.vercel.app/)
