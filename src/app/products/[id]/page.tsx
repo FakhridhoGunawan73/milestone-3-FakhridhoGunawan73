@@ -17,27 +17,27 @@ export default async function ProductDetailPage({
     const product = response.data;
 
     return (
-      <main className="min-h-screen bg-gray-50 p-6 md:p-12">
-        <div className="max-w-6xl mx-auto">
+      <main className="min-h-screen bg-gray-50 p-2 md:p-8">
+        <div className="max-w-8xl mx-auto px-10">
           <Link
             href="/"
-            className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2 mb-8"
+            className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-3 mb-8"
           >
             ← Back to Catalog
           </Link>
 
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             {/* Gambar */}
-            <div className="bg-gray-200 h-96 md:h-auto">
+            <div className="w-full aspect-square md:aspect-auto md:h-125 overflow-hidden rounded-2xl shadow-xl">
               <img
                 src={product.images[0]}
                 alt={product.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain p-4"
               />
             </div>
 
             {/*Detail */}
-            <div className="p-8 md:p-12 flex flex-col justify-center">
+            <div className="p-8 px-4 md:h-125 flex flex-col justify-center rounded-2xl shadow-xl">
               <span className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-2">
                 {product.category.name}
               </span>

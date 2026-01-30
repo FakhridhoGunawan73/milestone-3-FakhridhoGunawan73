@@ -6,6 +6,7 @@ import ProductCard from "./components/ProductCard";
 import ProductGrid from "./components/ProductGrid";
 import { useEffect, useState } from "react";
 import Loading from "./components/Loading";
+import ProductHeader from "./components/ProductHeader";
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -28,10 +29,14 @@ export default function Home() {
   if (loading) return <Loading />;
 
   return (
-    <ProductGrid>
-      {products.map((item) => (
-        <ProductCard key={item.id} product={item} />
-      ))}
-    </ProductGrid>
+    <main>
+      <ProductHeader count={products.length} />
+
+      <ProductGrid>
+        {products.map((item) => (
+          <ProductCard key={item.id} product={item} />
+        ))}
+      </ProductGrid>
+    </main>
   );
 }

@@ -10,3 +10,7 @@ export interface Product {
     image: string;
   };
 }
+
+export interface ProductHeaderProps {
+  count: number;
+}

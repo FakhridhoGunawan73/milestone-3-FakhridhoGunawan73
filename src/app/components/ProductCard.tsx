@@ -12,10 +12,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         <img
           src={product.images[0]}
           alt={product.title}
-          className="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-contain aspect-square group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute top-2 right-2">
-          <span className="bg-white/90 backdrop-blur-sm text-xs font-semibold px-2 py-1 rounded-lg shadow-sm">
+          <span className="bg-white/90 backdrop-blur-sm text-xs font-semibold px-2 py-1 rounded-lg shadow-sm line-clamp-1">
             {product.category.name}
           </span>
         </div>
@@ -29,15 +29,17 @@ export default function ProductCard({ product }: ProductCardProps) {
             ${product.price.toLocaleString()}
           </p>
 
-          <button className="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2.5 rounded-lg transition-colors">
-            Add to Cart
-          </button>
-          <Link
-            href={`/products/${product.id}`}
-            className="mt-2 block text-center w-full bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-semibold py-2.5 rounded-lg transition-all"
-          >
-            View Detail
-          </Link>
+          <div className="flex items-center gap-3 justify-between">
+            <Link
+              href={`/products/${product.id}`}
+              className="mt-2 block text-center w-full bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-semibold py-2.5 rounded-lg transition-all"
+            >
+              View Detail
+            </Link>
+            <button className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2.5 rounded-lg transition-colors">
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
     </div>
