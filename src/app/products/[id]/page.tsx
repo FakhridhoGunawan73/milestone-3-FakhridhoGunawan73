@@ -9,7 +9,6 @@ export default async function ProductDetailPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  // id ini didapat dari nama folder [id]
   const { id } = await params;
 
   try {

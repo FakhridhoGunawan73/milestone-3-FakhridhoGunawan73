@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 RevoShop - E-Commerce Platform (Next.js)
 
-## Getting Started
+RevoShop adalah aplikasi web _e-commerce_ modern yang dibangun menggunakan **Next.js 15**. Proyek ini berfokus pada performa tinggi menggunakan metode **SSG (Static Site Generation)** untuk halaman informasi dan **Dynamic Routing** untuk katalog produk yang responsif.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Proyek ini dikembangkan untuk mendemonstrasikan integrasi API eksternal dengan antarmuka pengguna yang bersih dan sejajar. Fokus utama pengembangan meliputi konsistensi tata letak (_alignment_), manajemen _state_ sederhana untuk keranjang belanja, dan optimasi navigasi antar halaman.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Fitur Utama
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Dynamic Product Catalog**: Menampilkan daftar produk secara real-time dari API eksternal.
+- **Product Detail Page**: Halaman spesifik untuk setiap produk dengan informasi harga dan deskripsi lengkap.
+- **Static Site Generation (SSG)**: Halaman FAQ yang dibuat secara statis untuk kecepatan akses maksimal.
+- **Contextual Navbar**: Bar navigasi cerdas yang menyesuaikan tombol (Cart/Back) berdasarkan posisi halaman pengguna.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Teknologi yang Digunakan
 
-## Learn More
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS
+- **HTTP Client**: Axios
+- **API**: Platzi Fake Store API
+- **Language**: TypeScript
 
-To learn more about Next.js, take a look at the following resources:
+## Struktur Proyek
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/src/app/` : Routing utama aplikasi.
+- `/src/app/products/[id]/` : Implementasi Dynamic Route untuk detail produk.
+- `/src/app/faq/` : Implementasi Static Route untuk FAQ.
+- `/src/components/` : Komponen reusable seperti `Navbar.tsx`, `ProductCard.tsx`, dan `ProductHeader.tsx`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Cara Menjalankan
 
-## Deploy on Vercel
+1. Clone repositori: `git clone <repo-url>`
+2. Install dependensi: `npm install`
+3. Jalankan mode pengembangan: `npm run dev`
+4. Akses melalui: `http://localhost:3000`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy Website
