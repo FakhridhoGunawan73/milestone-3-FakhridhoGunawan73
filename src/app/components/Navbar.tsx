@@ -3,54 +3,78 @@
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { Menu, X, ShoppingCart } from "lucide-react";
 
 function Navbar() {
   const [cartCount, setCartCount] = useState<number>(0);
+  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   return (
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
-      <div className="max-w-8xl px-10 mx-auto h-20 flex items-center justify-between">
+      <div className="max-w-5xl px-6 mx-auto h-20 flex items-center justify-between">
         <Link
           href="/"
-          className="text-2xl font-black tracking-tighter shrink-0"
+          className="text-2xl font-black tracking-tighter shrink-0 z-50"
         >
           Revo<span className="text-blue-600">Shop</span>
         </Link>
-        <div className="flex items-center gap-10">
-          <div className="hidden md:flex items-center gap-8 text-gray-600 font-medium">
-            <Link
-              href="/"
-              className={`${pathname === "/" ? "text-blue-600" : ""} hover:text-blue-600 transition-colors`}
-            >
-              Home
-            </Link>
-            <Link
-              href="/faq"
-              className={`${pathname === "/faq" ? "text-blue-600" : ""} hover:text-blue-600 transition-colors`}
-            >
-              FAQ
-            </Link>
-          </div>
-          <div className="flex items-center">
-            {pathname === "/faq" ? (
-              <Link
-                href="/"
-                className="bg-blue-600 text-white rounded-xl px-6 py-2 text-md font-bold hover:bg-blue-700 transition-all shadow-md shadow-blue-100"
-              >
-                Back
-              </Link>
-            ) : (
-              <button
-                onClick={() => setCartCount(cartCount + 1)}
-                className="flex items-center gap-2 px-4 py-2 bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200 rounded-lg text-gray-800 font-semibold"
-              >
-                Cart
-                <span className="text-md rounded-full">({cartCount})</span>
-              </button>
-            )}
-          </div>
+
+        <div className="hidden md:flex items-center gap-8 text-gray-600 font-medium">
+          <Link
+            href="/"
+            className={`${pathname === "/" ? "text-blue-600" : ""} hover:text-blue-600 transition-colors`}
+          >
+            Home
+          </Link>
+          <Link
+            href="/faq"
+            className={`${pathname === "/faq" ? "text-blue-600" : ""} hover:text-blue-600 transition-colors`}
+          >
+            FAQ
+          </Link>
         </div>
+
+        <div className="flex items-center gap-4">
+          <button>
+            <ShoppingCart className="w-5 h-5" />
+          </button>
+          <button className="hidden md:flex text-white bg-blue-600 border rounded-md px-4 py-1">
+            Login
+          </button>
+
+          <button
+            className="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-all z-50"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </div>
+
+      <div
+        className={`
+        fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in-out md:hidden
+        ${isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}
+      `}
+      >
+        <Link
+          href="/"
+          onClick={() => setIsOpen(false)}
+          className={`text-2xl font-bold ${pathname === "/" ? "text-blue-600" : "text-gray-800"}`}
+        >
+          Home
+        </Link>
+        <Link
+          href="/faq"
+          onClick={() => setIsOpen(false)}
+          className={`text-2xl font-bold ${pathname === "/faq" ? "text-blue-600" : "text-gray-800"}`}
+        >
+          FAQ
+        </Link>
+        <button className="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold shadow-lg">
+          Login
+        </button>
       </div>
     </nav>
   );

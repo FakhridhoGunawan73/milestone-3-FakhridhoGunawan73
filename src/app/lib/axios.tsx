@@ -1,7 +1,10 @@
 import axios from "axios";
 
-const axiosInstance = axios.create({
+export const api = axios.create({
   baseURL: "https://api.escuelajs.co/api/v1",
-});
 
-export default axiosInstance;
+  timeout: 10000,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
