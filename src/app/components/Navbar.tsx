@@ -4,9 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, ShoppingCart } from "lucide-react";
+import { useCart } from "../context/CartContext";
 
 function Navbar() {
-  const [cartCount, setCartCount] = useState<number>(0);
+  const { totalItems } = useCart();
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
@@ -36,9 +37,16 @@ function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <button>
-            <ShoppingCart className="w-5 h-5" />
-          </button>
+          <Link
+            href="/cart"
+            className="relative hover:text-blue-600"
+            title="Cart"
+          >
+            <ShoppingCart />
+            <span className="absolute -top-2 -right-3 rounded-full bg-blue-600 px-1.5 text-xs text-white">
+              {totalItems}
+            </span>
+          </Link>
           <button className="hidden md:flex text-white bg-blue-600 border rounded-md px-4 py-1">
             Login
           </button>

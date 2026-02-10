@@ -1,5 +1,6 @@
 import { Product } from "../types/product";
 import Link from "next/link";
+import AddToCart from "./AddToCart";
 
 interface ProductCardProps {
   product: Product;
@@ -36,9 +37,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             >
               View Detail
             </Link>
-            <button className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2.5 rounded-lg transition-colors">
-              Add to Cart
-            </button>
+            <AddToCart product={product} />
           </div>
         </div>
       </div>
