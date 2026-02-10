@@ -14,3 +14,7 @@ export interface Product {
 export interface ProductHeaderProps {
   count: number;
 }
+
+export interface CartItem extends Product {
+  quantity: number;
+}

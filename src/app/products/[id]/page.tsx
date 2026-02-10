@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Product } from "../../types/product";
 import Link from "next/link";
+import AddToCart from "@/app/components/AddToCart";
 
 export const dynamic = "force-dynamic";
 
@@ -58,10 +59,8 @@ export default async function ProductDetailPage({
                 </p>
               </div>
 
-              <div className="mt-2">
-                <button className="w-1/3 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl font-bold text-md shadow-lg shadow-blue-100 transition-all active:scale-[0.98]">
-                  Add to Cart
-                </button>
+              <div className="mt-2 w-full flex items-center justify-between ">
+                <AddToCart product={product} withQty />
               </div>
             </div>
           </div>
