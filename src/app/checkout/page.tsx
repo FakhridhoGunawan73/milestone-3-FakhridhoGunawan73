@@ -35,8 +35,8 @@ export default function CheckoutPage() {
             />
           </div>
 
-          <button className="mt-4 px-4 py-2 rounded-lg border hover:opacity-90">
-            Place Order (mock)
+          <button className="mt-4 px-4 py-2 rounded-lg border hover:opacity-90 bg-blue-600 text-white">
+            Place Order
           </button>
         </section>
 
@@ -52,7 +52,7 @@ export default function CheckoutPage() {
                 <span>{formatJPY(it.price * it.quantity)}</span>
               </div>
             ))}
-            <div className="border-t pt-2 flex justify-between font-semibold">
+            <div className="border-t pt-2 flex justify-between font-semibold text-blue-600">
               <span>Total</span>
               <span>{formatJPY(subtotal)}</span>
             </div>

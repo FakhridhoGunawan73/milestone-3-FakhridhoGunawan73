@@ -5,6 +5,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, ShoppingCart } from "lucide-react";
 import { useCart } from "../context/CartContext";
+import LoginPage from "@/app/login/page";
 
 function Navbar() {
   const { totalItems } = useCart();
@@ -47,9 +48,16 @@ function Navbar() {
               {totalItems}
             </span>
           </Link>
-          <button className="hidden md:flex text-white bg-blue-600 border rounded-md px-4 py-1">
+          <Link
+            href="/login"
+            className="hidden md:flex text-white bg-blue-600 border rounded-md px-4 py-1"
+          >
             Login
-          </button>
+          </Link>
+
+          {/* <button className="hidden md:flex text-white bg-blue-600 border rounded-md px-4 py-1">
+            Login
+          </button> */}
 
           <button
             className="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-all z-50"
