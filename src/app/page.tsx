@@ -14,7 +14,6 @@ const DUMMY_PRODUCTS: Product[] = [
     title: "Classic Black T-Shirt",
     price: 35,
     description: "High quality cotton t-shirt in black color.",
-    // Menggunakan placeholder yang pasti muncul
     images: [
       "https://placehold.co/600x600/000000/FFFFFF/png?text=Black+TShirt",
     ],
@@ -59,7 +58,6 @@ export default function Home() {
         }
       } catch (error) {
         console.error("Error fetching data", error);
-        // PENTING: Jika API error, tetap tampilkan dummy
         setProducts(DUMMY_PRODUCTS);
       } finally {
         setLoading(false);
