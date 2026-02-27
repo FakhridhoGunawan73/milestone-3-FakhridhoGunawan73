@@ -29,7 +29,7 @@ export default function ProductTable({ products }: { products: Product[] }) {
             <th className="py-3 pr-4">Title</th>
             <th className="py-3 pr-4">Price</th>
             <th className="py-3 pr-4">Category</th>
-            <th className="py-3 pr-4">Actions</th>
+            <th className="py-3 w-40">Actions</th>
           </tr>
         </thead>
 
