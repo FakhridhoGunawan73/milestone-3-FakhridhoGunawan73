@@ -3,20 +3,11 @@ import Link from "next/link";
 import ProductTable from "@/app/components/admin/ProductTable";
 import type { Product } from "@/app/types/product";
 
-export const dynamic = "force-dynamic";
-
-async function getBaseUrl() {
-  const h = await headers();
-  const host = h.get("host");
-  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
-  return `${protocol}://${host}`;
-}
+export const revalidate = 60;
 
 async function getProducts(): Promise<Product[]> {
-  const baseUrl = await getBaseUrl();
-
-  const res = await fetch(`${baseUrl}/api/products?offset=0&limit=50`, {
-    cache: "no-store",
+  const res = await fetch("https://api.escuelajs.co/api/v1/products", {
+    next: { revalidate: 60 },
   });
 
   if (!res.ok) throw new Error("Failed to load products");

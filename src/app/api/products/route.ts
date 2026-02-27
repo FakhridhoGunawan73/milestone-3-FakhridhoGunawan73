@@ -11,7 +11,7 @@ export async function GET() {
 export async function POST(req: Request) {
   const body = await req.json();
 
-  const res = await axios.post("/products", {
+  const res = await axios.post("https://api.escuelajs.co/api/v1/products", {
     title: body.title,
     price: body.price,
     description: body.description,
